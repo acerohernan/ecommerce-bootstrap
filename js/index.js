@@ -1,10 +1,15 @@
+//Set quantity of Porducts
 const quantitySpan = document.getElementById("quantity");
 const minusButton = document.getElementById("minusButton");
 const plusButton = document.getElementById("plusButton");
-const cartButton = document.getElementById("cartButton");
+
+//Cart 
+const addToCartButton = document.getElementById("addToCartButton");
 const cartIconContainer = document.getElementById("cartIconContainer");
+const cartButton = document.getElementById("cartButton");
+const cartModal = document.getElementById("modal");
 
-
+let cartIsOpen = false; 
 let quantity = 0;
 
 minusButton.addEventListener("click", () => {
@@ -23,7 +28,7 @@ plusButton.addEventListener("click", () => {
     quantitySpan.innerText = quantity.toString();
 });
 
-cartButton.addEventListener("click", () => {
+addToCartButton.addEventListener("click", () => {
     if(quantity === 0) {return true};
     console.log(`Cart Products : ${quantity}`);
     cartIconContainer.innerHTML = `
@@ -31,3 +36,16 @@ cartButton.addEventListener("click", () => {
     <img src="../images/icon-cart.svg" alt="" width="20">
     `;
 });
+
+cartButton.addEventListener("click", () => {
+    cartIsOpen = !cartIsOpen;
+    console.log(cartIsOpen);
+    if(cartIsOpen){
+        cartModal.innerHTML = `
+            <h1> Soy el modal </h1>
+        `;
+    } else{
+        cartModal.innerHTML = ``;
+    }
+})
+
