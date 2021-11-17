@@ -43,8 +43,24 @@ cartButton.addEventListener("click", () => {
   console.log(cartIsOpen);
   if (cartIsOpen) {
     cartModal.innerHTML = `
-            <div class="container col-2" style="border: 1px solid red; position: fixed; top: 0; left: 0; background-color: gray;">
-                <h1>Soy el modal</h1>
+            <div class="container col-3 card" style="border: 1px solid red; position: fixed; top: 0; left: 0; border: 1px solid gray">
+              <div class="card-body py-4">
+                
+                    <h4 class="card-title border-bottom py-2">Cart</h4>
+                    <div class="card-text py-3 style="max-width: 320px; overflow: scroll;">
+                      
+                    ${quantity > 0 &&     }
+                        
+                        <div class="col-2 d-flex align-items-center">
+                          <button class="btn btn-light bg-white border border-white">
+                            <img src="../images/icon-delete.svg" alt="delete-icon"/>
+                          </button>
+                        </div>
+
+                      </div>
+                    </div>
+                    <button class="btn btn-warning rounded w-100 text-center text-light my-2">Checkout</button>
+                </div>
             </div>
         `;
   } else {
