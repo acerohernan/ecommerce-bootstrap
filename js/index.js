@@ -58,7 +58,7 @@ cartButton.addEventListener("click", () => {
                         ? `
                       <div class="row">
                         <div class="col-4 d-flex align-items-center justify-content-center">
-                          <img src="../images/image-product-1.jpg" class="col-12 rounded"/>
+                          <img src="./images/image-product-1.jpg" class="col-12 rounded"/>
                         </div>
                         <div class="col">
                           <div class="row">
@@ -73,7 +73,7 @@ cartButton.addEventListener("click", () => {
                         </div>
                         <div class="col-2 d-flex align-items-center">
                           <button class="btn btn-light bg-white border border-white" id="trashButton">
-                            <img src="../images/icon-delete.svg" alt="delete-icon"/>
+                            <img src="./images/icon-delete.svg" alt="delete-icon"/>
                           </button>
                         </div>
                       </div>
