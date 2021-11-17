@@ -10,7 +10,7 @@
   </head>
   <body class="d-flex flex-column">
     <header>
-      <div class="container border-bottom border-gray py-4 my-2">
+      <div class="container border-bottom border-gray py-4 my-2 border border-danger">
         <div class="row">
           <div class="col-7">
             <div class="row text-center">
@@ -30,9 +30,16 @@
           </div>
           <div class="col">
             <div class="row d-flex justify-content-end">
-              <div id="cartIconContainer" class="col-1 d-flex align-items-center justify-content-center">
+              <div class="col-1 d-flex align-items-center justify-content-center">
                   <button id="cartButton" class="bg-white btn-outline-light" style="outline: none; border:none;">
-                      <img src="../images/icon-cart.svg" alt="" width="20">
+                      <div class="row d-flex">
+                          <div class="col">
+                              <img src="../images/icon-cart.svg" alt="" width="20">
+                          </div>
+                          <div class="col" id="cartNumber">
+
+                          </div>
+                      </div>
                   </button>
               </div>
               <div class="col-2 d-flex align-items-center justify-content-center">
@@ -44,8 +51,8 @@
       </div>
     </header>
 
-    <main class="d-flex justify-content-center align-items-center h-100">
-        <div class="container w-100">
+    <main class="d-flex justify-content-center align-items-center h-100 border border-dark">
+        <div class="container w-100 border border-warning">
             <div class="row w-100">
                 <div class="col-6">
                     <div class="row p-3 justify-content-end">
@@ -110,7 +117,6 @@
             </div>
         </div>
         <div id="modal">
-
         </div>
     </main>
 
