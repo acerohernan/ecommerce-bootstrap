@@ -8,6 +8,7 @@ const addToCartButton = document.getElementById("addToCartButton");
 const cartNumber = document.getElementById("cartNumber");
 const cartButton = document.getElementById("cartButton");
 const cartModal = document.getElementById("modal");
+const trashButton = document.getElementById("trashButton");
 
 let cartIsOpen = false;
 let quantity = 0;
@@ -32,34 +33,63 @@ addToCartButton.addEventListener("click", () => {
   if (quantity === 0) {
     return true;
   }
-  console.log(`Cart Products : ${quantity}`);
   cartNumber.innerHTML = `
         <span class="bg-warning text-center text-light rounded-circle fw-bold" style="width: 15px; position: absolute; font-size: 0.8rem; margin-top: -30px;">${quantity}</span>
     `;
 });
 
+/* Trash button function */
+function eliminateProduct() {
+  console.log("trash");
+}
+
 cartButton.addEventListener("click", () => {
   cartIsOpen = !cartIsOpen;
-  console.log(cartIsOpen);
   if (cartIsOpen) {
     cartModal.innerHTML = `
-            <div class="container col-3 card" style="border: 1px solid red; position: fixed; top: 0; left: 0; border: 1px solid gray">
-              <div class="card-body py-4">
+            <div class="container col-3 card border-gray" style="position: fixed; top: 80px; right: 110px;">
+              <div class="card-body">
                 
                     <h4 class="card-title border-bottom py-2">Cart</h4>
                     <div class="card-text py-3 style="max-width: 320px; overflow: scroll;">
                       
-                    ${quantity > 0 &&     }
-                        
+                    ${
+                      quantity > 0
+                        ? `
+                      <div class="row">
+                        <div class="col-4 d-flex align-items-center justify-content-center">
+                          <img src="../images/image-product-1.jpg" class="col-12 rounded"/>
+                        </div>
+                        <div class="col">
+                          <div class="row">
+                            <span>Fall Limited Edition Sneakers</span>
+                          </div>
+                          <div class="row my-2">
+                            <span class="price">$125.00 x ${quantity}</span>
+                            <span class="fw-bold price">${
+                              quantity * 125
+                            }.00</span>
+                          </div>
+                        </div>
                         <div class="col-2 d-flex align-items-center">
-                          <button class="btn btn-light bg-white border border-white">
+                          <button class="btn btn-light bg-white border border-white" id="trashButton">
                             <img src="../images/icon-delete.svg" alt="delete-icon"/>
                           </button>
                         </div>
-
+                      </div>
+                      `
+                        : ``
+                    }
+                    ${quantity === 0 ? "<h6>Cart is empty</h6>" : ""}
                       </div>
                     </div>
+                   ${
+                     quantity > 0
+                       ? `
                     <button class="btn btn-warning rounded w-100 text-center text-light my-2">Checkout</button>
+                   `
+                       : ``
+                   }     
                 </div>
             </div>
         `;
@@ -67,3 +97,5 @@ cartButton.addEventListener("click", () => {
     cartModal.innerHTML = ``;
   }
 });
+
+
